@@ -1,1 +1,1 @@
-(../solution/wsh < tests/8.wsh)
+(../wsh < tests/8.wsh)

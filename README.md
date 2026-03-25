@@ -1,23 +1,77 @@
----
-title: CS 537 Project 3
-layout: default
----
+# wsh - The Wisconsin Shell
 
-# CS537 Spring 2026, Project 3 -- Create a shell (`wsh`)
+`wsh` is an interactive Unix-like command-line shell written in C. It supports standard shell features like built-in commands, external program execution, piping, environment variables, and both interactive and batch execution modes.
 
-For this project you will implement a shell (`wsh`) similar to the shell you use on Linux. (bash, zsh, etc..)
+## Features
 
-## Project Administration and Policies
+- **Interactive & Batch Modes**: Run commands interactively with a prompt (`wsh> `) or pass a script file for batch execution.
+- **External Program Execution**: Resolves external programs using the `PATH` environment variable and executes them with support for arbitrary arguments.
+- **Pipelines**: Supports connecting the output of one command to the input of another using the `|` operator (up to 128 commands in a single pipeline), running commands simultaneously.
+- **Environment Variables**: Supports expansion of environment variables (e.g., `$USER`) within commands.
+- **Built-in Commands**:
+  - `cd [dir]`: Change the current working directory.
+  - `env`: Display or modify environment variables.
+  - `exit`: Terminate the shell.
 
-**Due date:** Thursday, February 19th, 11:59pm
+## Building
 
-Follow all CS 537 [course policies](https://canvas.wisc.edu/courses/485415/pages/course-overview-and-policies) and [project policies](https://git.doit.wisc.edu/cdis/cs/courses/cs537/spring26/resources/-/blob/main/admin/Admin.md).
+To build the shell, simply run:
 
-## Project Workflow
+```bash
+make
+```
 
-Your solution code will be tested in the [CS 537 Docker container](https://git.doit.wisc.edu/cdis/cs/courses/cs537/useful-resources/cs537-docker).  Follow the instructions in that repository to create the proper environment.  After following those instructions you should have a `cs537-projects/` directory where you can clone all of the projects for this course.
+This will produce two executables:
+- `wsh`: The optimized version of the shell.
+- `wsh-dbg`: A debug version built with debugging symbols.
 
-Follow the suggested [workflow](https://git.doit.wisc.edu/cdis/cs/courses/cs537/spring26/resources/-/blob/main/admin/Workflow.md) for development of your solution.
+## Usage
 
-## Project Instructions
-Look [here](Instructions.md).
+### Interactive Mode
+
+Run the shell without any arguments to enter interactive mode:
+
+```bash
+$ ./wsh
+wsh> ls -l | wc -l
+wsh> echo "Hello World"
+wsh> exit
+```
+
+### Batch Mode
+
+Pass a file containing shell commands to execute it in batch mode:
+
+```bash
+$ ./wsh script.sh
+```
+
+### Environment Variables
+
+Set environment variables using the `env` builtin:
+
+```bash
+wsh> env MY_VAR=Hello
+wsh> echo $MY_VAR
+Hello
+wsh> env MY_VAR # Clears the variable
+```
+
+## Running Tests
+
+An automated test suite is provided. To run all tests:
+
+```bash
+cd tests
+./run-tests.sh
+```
+
+To run a specific test by its number:
+
+```bash
+./run-tests.sh -t 1
+```
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.

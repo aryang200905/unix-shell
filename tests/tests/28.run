@@ -1,1 +1,1 @@
-(../solution/wsh tests/nonexistent_file)
+(../wsh tests/nonexistent_file)

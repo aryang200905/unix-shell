@@ -3,7 +3,7 @@ CFLAGS-common = -std=gnu18 -Wall -Wextra -Werror -pedantic
 CFLAGS = $(CFLAGS-common) -O2
 CFLAGS-dbg = $(CFLAGS-common) -Og -ggdb
 TARGET = wsh
-SRC = $(TARGET).c parser.c
+SRC = src/$(TARGET).c src/parser.c
 all: $(TARGET) $(TARGET)-dbg
 
 $(TARGET): $(SRC)

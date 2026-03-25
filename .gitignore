@@ -1,6 +1,11 @@
-**/.DS_Store
-# Ignore build files
-solution/wsh
-solution/wsh-dbg
-# Ignore the test output
+# Build artifacts
+wsh
+wsh-dbg
+*.o
+
+# OS specific files
+.DS_Store
+
+# Test outputs
 tests/tests-out/
+tests/tmp/

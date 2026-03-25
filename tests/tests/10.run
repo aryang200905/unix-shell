@@ -1,1 +1,1 @@
-(env -u HOME ../solution/wsh < tests/10.wsh)
+(env -u HOME ../wsh < tests/10.wsh)
