@@ -2,6 +2,7 @@
 wsh
 wsh-dbg
 *.o
+*.dSYM/
 
 # OS specific files
 .DS_Store

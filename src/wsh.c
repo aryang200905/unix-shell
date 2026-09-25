@@ -326,7 +326,7 @@ char *get_variable(const char *var) {
 }
 
 int main(int argc, char **argv) {
- FILE *in = NULL;
+  FILE *in = NULL;
   int interactive = 0;
 
   if (argc == 1) {
